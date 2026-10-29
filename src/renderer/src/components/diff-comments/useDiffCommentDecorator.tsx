@@ -35,6 +35,7 @@ type DecoratorArgs = {
   editor: monacoEditor.ICodeEditor | null
   // Monaco destroys model-scoped view zones on model swap, so rebuild even though the editor object is stable.
   monacoModelIdentity?: string
+  draftRetentionKey?: string
   filePath: string
   worktreeId: string
   comments: readonly DecoratedDiffComment[]
@@ -67,6 +68,7 @@ export function useDiffCommentDecorator({
   commentOwner = null,
   editor,
   monacoModelIdentity,
+  draftRetentionKey,
   filePath,
   worktreeId,
   comments,
@@ -122,6 +124,7 @@ export function useDiffCommentDecorator({
     captureCreateComment,
     editor,
     monacoModelIdentity,
+    draftRetentionKey,
     onCreateComment,
     draftPlaceholder,
     draftSubmitLabel,
